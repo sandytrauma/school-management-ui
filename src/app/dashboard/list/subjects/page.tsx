@@ -40,7 +40,7 @@ const SubjectPage = () => {
           <Link href={`/list/teachers/${item.id}`}>
             <button className="w-7 h-7 flex items-center justify-center bg-sandytraumaSky">
               <Image
-                src="/view.png"
+                src="/edit.png"
                 alt="view single teacher page"
                 width={16}
                 height={16}
@@ -49,7 +49,7 @@ const SubjectPage = () => {
           </Link>
           {role === "admin" && (<button className="w-7 h-7 flex items-center justify-center bg-sandytraumaPurple">
             <Image
-              src="/view.png"
+              src="/delete.png"
               alt="view single teacher page"
               width={16}
               height={16}

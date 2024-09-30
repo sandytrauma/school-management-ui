@@ -70,8 +70,8 @@ const ParentPage = () => {
           </Link>
           {role === "admin" && (<button className="w-7 h-7 flex items-center justify-center bg-sandytraumaPurple">
             <Image
-              src="/view.png"
-              alt="view single teacher page"
+              src="/delete.png"
+              alt="delete single teacher page"
               width={16}
               height={16}
             />

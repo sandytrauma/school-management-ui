@@ -89,7 +89,7 @@ const TeacherListPage = () => {
           </Link>
           {role === "admin" && (<button className="w-7 h-7 flex items-center justify-center bg-sandytraumaPurple">
             <Image
-              src="/view.png"
+              src="/delete.png"
               alt="view single teacher page"
               width={16}
               height={16}
