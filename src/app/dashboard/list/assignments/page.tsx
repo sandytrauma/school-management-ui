@@ -1,3 +1,4 @@
+import FormModal from "@/components/FormModal";
 import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
@@ -50,24 +51,13 @@ const AssignmentPage = () => {
       <td className="hidden md:table-cell">{item.dueDate}</td>
       <td>
         <div className="flex items-center gap-2">
-          <Link href={`/list/teachers/${item.id}`}>
-            <button className="w-7 h-7 flex items-center justify-center bg-sandytraumaSky">
-              <Image
-                src="/edit.png"
-                alt="view single teacher page"
-                width={16}
-                height={16}
-              />
-            </button>
-          </Link>
-          {role === "admin" && (<button className="w-7 h-7 flex items-center justify-center bg-sandytraumaPurple">
-            <Image
-              src="/delete.png"
-              alt="view single teacher page"
-              width={16}
-              height={16}
-            />
-          </button>)}
+          
+          {role === "admin" && (
+             <>
+             <FormModal table="assignment" type="update" data={item}/>
+             <FormModal table="assignment" type="delete" id={item.id}/>
+             </>
+          )}
         </div>
       </td>
     </tr>
@@ -86,9 +76,9 @@ const AssignmentPage = () => {
             <button className="w-8 h-8 flex items-center justify-center rounded-full bg-sandytraumaYellow">
               <Image src="/sort.png" alt="buttons" width={14} height={14} />
             </button>
-            {role === "admin" && (<button className="w-8 h-8 flex items-center justify-center rounded-full bg-sandytraumaYellow">
-              <Image src="/plus.png" alt="buttons" width={14} height={14} />
-            </button>)}
+            {role === "admin" && (
+              <FormModal table="assignment" type="create"/>
+            )}
           </div>
         </div>
       </div>
