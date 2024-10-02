@@ -106,3 +106,18 @@ color: black !important;
     color: gray !important;
     margin-bottom: 5px !important;
  }
+
+ 
+
+ ::-webkit-scrollbar {
+   background-color: cornflowerblue;
+   width: 2px;
+   height: 2px;
+   border-radius: 2rem;
+ }
+
+ ::-webkit-scrollbar-thumb {
+   color: #C3EBFA;
+   
+ }
+
