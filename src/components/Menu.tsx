@@ -1,4 +1,4 @@
-import { role } from "@/lib/data";
+import { currentUser } from "@clerk/nextjs/server";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,79 +15,79 @@ const menuItems = [
       {
         icon: "/teacher.png",
         label: "Teachers",
-        href: "/dashboard/list/teachers",
+        href: "/list/teachers",
         visible: ["admin", "teacher"],
       },
       {
         icon: "/student.png",
         label: "Students",
-        href: "/dashboard/list/students",
+        href: "/list/students",
         visible: ["admin", "teacher"],
       },
       {
         icon: "/parent.png",
         label: "Parents",
-        href: "/dashboard/list/parents",
+        href: "/list/parents",
         visible: ["admin", "teacher"],
       },
       {
         icon: "/subject.png",
         label: "Subjects",
-        href: "/dashboard/list/subjects",
+        href: "/list/subjects",
         visible: ["admin"],
       },
       {
         icon: "/class.png",
         label: "Classes",
-        href: "/dashboard/list/classes",
+        href: "/list/classes",
         visible: ["admin", "teacher"],
       },
       {
         icon: "/lesson.png",
         label: "Lessons",
-        href: "/dashboard/list/lessons",
+        href: "/list/lessons",
         visible: ["admin", "teacher"],
       },
       {
         icon: "/exam.png",
         label: "Exams",
-        href: "/dashboard/list/exams",
+        href: "/list/exams",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
         icon: "/assignment.png",
         label: "Assignments",
-        href: "/dashboard/list/assignments",
+        href: "/list/assignments",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
         icon: "/result.png",
         label: "Results",
-        href: "/dashboard/list/results",
+        href: "/list/results",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
         icon: "/attendance.png",
         label: "Attendance",
-        href: "/dashboard/list/attendance",
+        href: "/list/attendance",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
         icon: "/calendar.png",
         label: "Events",
-        href: "/dashboard/list/events",
+        href: "/list/events",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
         icon: "/message.png",
         label: "Messages",
-        href: "/dashboard/list/messages",
+        href: "/list/messages",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
         icon: "/announcement.png",
         label: "Announcements",
-        href: "/dashboard/list/announcements",
+        href: "/list/announcements",
         visible: ["admin", "teacher", "student", "parent"],
       },
     ],
@@ -117,26 +117,34 @@ const menuItems = [
   },
 ];
 
-const Menu = () =>{
+const Menu = async () => {
+  const user = await currentUser();
+  const role = user?.publicMetadata.role as string;
   return (
     <div className="mt-4 text-sm">
-      {menuItems.map (i=>(
+      {menuItems.map((i) => (
         <div className="flex flex-col gap-2" key={i.title}>
-          <span className="hidden lg:block text-gray-400 font-light my-4">{i.title}</span>
-        {i.items.map((item)=>{
-          if (item.visible.includes(role)){
-            return(
-              <Link href={item.href} key={item.label} className="flex items-center justify-center lg:justify-start gap-4 text-gray-500 py-2 md:px-2 rounded-md hover:bg-sandytraumaSkyLight">
-            <Image src={item.icon} alt="img" width={20} height={20}/>
-            <span className="hidden lg:block">{item.label}</span>
-            </Link>
-            )
-          }
-        })}
+          <span className="hidden lg:block text-gray-400 font-light my-4">
+            {i.title}
+          </span>
+          {i.items.map((item) => {
+            if (item.visible.includes(role)) {
+              return (
+                <Link
+                  href={item.href}
+                  key={item.label}
+                  className="flex items-center justify-center lg:justify-start gap-4 text-gray-500 py-2 md:px-2 rounded-md hover:bg-lamaSkyLight"
+                >
+                  <Image src={item.icon} alt="" width={20} height={20} />
+                  <span className="hidden lg:block">{item.label}</span>
+                </Link>
+              );
+            }
+          })}
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Menu
+export default Menu;
