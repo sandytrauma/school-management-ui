@@ -27,7 +27,7 @@ export const createSubject = async (
       },
     });
 
-    // revalidatePath("/list/subjects");
+    // revalidatePath("/dashboard/list/subjects");
     return { success: true, error: false };
   } catch (err) {
     console.log(err);
@@ -52,7 +52,7 @@ export const updateSubject = async (
       },
     });
 
-    // revalidatePath("/list/subjects");
+    // revalidatePath("/dashboard/list/subjects");
     return { success: true, error: false };
   } catch (err) {
     console.log(err);
@@ -72,7 +72,7 @@ export const deleteSubject = async (
       },
     });
 
-    // revalidatePath("/list/subjects");
+    // revalidatePath("/dashboard/list/subjects");
     return { success: true, error: false };
   } catch (err) {
     console.log(err);
@@ -89,7 +89,7 @@ export const createClass = async (
       data,
     });
 
-    // revalidatePath("/list/class");
+    // revalidatePath("/dashboard/list/class");
     return { success: true, error: false };
   } catch (err) {
     console.log(err);
@@ -109,7 +109,7 @@ export const updateClass = async (
       data,
     });
 
-    // revalidatePath("/list/class");
+    // revalidatePath("/dashboard/list/class");
     return { success: true, error: false };
   } catch (err) {
     console.log(err);
@@ -129,7 +129,7 @@ export const deleteClass = async (
       },
     });
 
-    // revalidatePath("/list/class");
+    // revalidatePath("/dashboard/list/class");
     return { success: true, error: false };
   } catch (err) {
     console.log(err);
@@ -171,7 +171,7 @@ export const createTeacher = async (
       },
     });
 
-    // revalidatePath("/list/teachers");
+    // revalidatePath("/dashboard/list/teachers");
     return { success: true, error: false };
   } catch (err) {
     console.log(err);
@@ -217,7 +217,7 @@ export const updateTeacher = async (
         },
       },
     });
-    // revalidatePath("/list/teachers");
+    // revalidatePath("/dashboard/list/teachers");
     return { success: true, error: false };
   } catch (err) {
     console.log(err);
@@ -239,7 +239,7 @@ export const deleteTeacher = async (
       },
     });
 
-    // revalidatePath("/list/teachers");
+    revalidatePath("/dashboard/list/teachers");
     return { success: true, error: false };
   } catch (err) {
     console.log(err);
@@ -289,7 +289,7 @@ export const createStudent = async (
       },
     });
 
-    // revalidatePath("/list/students");
+    revalidatePath("/dashboard/list/students");
     return { success: true, error: false };
   } catch (err) {
     console.log(err);
@@ -333,7 +333,7 @@ export const updateStudent = async (
         parentId: data.parentId,
       },
     });
-    // revalidatePath("/list/students");
+    revalidatePath("/dashboard/list/students");
     return { success: true, error: false };
   } catch (err) {
     console.log(err);
@@ -355,7 +355,7 @@ export const deleteStudent = async (
       },
     });
 
-    // revalidatePath("/list/students");
+    revalidatePath("/dashboard/list/students");
     return { success: true, error: false };
   } catch (err) {
     console.log(err);
@@ -393,7 +393,7 @@ export const createExam = async (
       },
     });
 
-    // revalidatePath("/list/subjects");
+    revalidatePath("/dashboard/list/subjects");
     return { success: true, error: false };
   } catch (err) {
     console.log(err);
@@ -434,7 +434,7 @@ export const updateExam = async (
       },
     });
 
-    // revalidatePath("/list/subjects");
+    revalidatePath("/dashboard/list/subjects");
     return { success: true, error: false };
   } catch (err) {
     console.log(err);
@@ -459,7 +459,7 @@ export const deleteExam = async (
       },
     });
 
-    // revalidatePath("/list/subjects");
+    revalidatePath("/dashboard/list/subjects");
     return { success: true, error: false };
   } catch (err) {
     console.log(err);
